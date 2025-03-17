@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StyleMate - Your Personal AI Stylist</title>
+  <style>
+    :root {
+      --primary-color: #FF7F50;
+      --secondary-color: #f3f3f3;
+      --text-color: #333;
+      --light-gray: #f8f8f8;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background-color: #fff;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--text-color);
+      text-decoration: none;
+    }
+    
+    .logo img {
+      width: 32px;
+      margin-right: 10px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn {
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-color: var(--secondary-color);
+      padding: 60px 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-content {
+      flex: 1;
+      padding-right: 40px;
+    }
+    
+    .hero-image {
+      flex: 1;
+      text-align: right;
+    }
+    
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    
+    /* How It Works */
+    .how-it-works {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 50px;
+    }
+    
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    
+    .step-card {
+      flex: 1;
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+    
+    .step-number {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .step-card p {
+      color: #555;
+    }
+    
+    /* Features */
+    .features {
+      padding: 80px 0;
+      background-color: var(--light-gray);
+    }
+    
+    .feature-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .feature-card {
+      flex: 1;
+      min-width: 250px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+    
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .feature-card p {
+      color: #555;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      padding: 80px 0;
+    }
+    
+    .testimonial-cards {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+    
+    .testimonial-card {
+      flex: 0 0 300px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-author {
+      font-weight: bold;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--text-color);
+      color: white;
+      padding: 40px 0;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-right: 20px;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 20px;
+    }
+    
+    .download-app {
+      background-color: var(--primary-color);
+      padding: 10px 20px;
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .download-app:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+      
+      .hero-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+      
+      .steps, .feature-cards {
+        flex-direction: column;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <img src="/api/placeholder/32/32" alt="StyleMate Logo">
+          StyleMate
+        </a>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Virtual Try-On</a></li>
+          <li><a href="#">Style Guide</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+        <div class="auth-buttons">
+          <button class="btn btn-outline">Log In</button>
+          <button class="btn btn-primary">Sign Up</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Your Personal AI Stylist - Effortless Outfits, Every Day!</h1>
+        <p>Get AI-powered outfit recommendations based on your style, occasion, and weather.</p>
+        <button class="btn btn-primary">Get Started for Free</button>
+      </div>
+      <div class="hero-image">
+        <img src="/api/placeholder/400/320" alt="StyleMate outfit recommendations">
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p>Upload photos of your wardrobe (or sync from online stores).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p>AI suggests outfit combinations for any occasion.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p>Try them on virtually or shop missing items.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">AI-Powered Features</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <h3>Smart Outfit Generator</h3>
+          <p>Get daily outfit suggestions tailored to your preferences.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Weather-Based Styling</h3>
+          <p>Adapts your outfits to the weather forecast.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Virtual Try-On</h3>
+          <p>Experience an augmented reality dressing room.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Personalized Shopping</h3>
+          <p>AI suggests missing pieces for a complete wardrobe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">User Testimonials</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <img src="/api/placeholder/80/80" alt="User Avatar" class="testimonial-avatar">
+          <p class="testimonial-quote">"The AI Stylist completely revamped my wardrobe! Love every outfit it suggests."</p>
+          <p class="testimonial-author">- Emily R.</p>
+        </div>
+        <div class="testimonial-card">
+          <img src="/api/placeholder/80/80" alt="User Avatar" class="testimonial-avatar">
+          <p class="testimonial-quote">"I never worry about what to wear anymore. Thanks AI Stylist!"</p>
+          <p class="testimonial-author">- Jack M.</p>
+        </div>
+        <div class="testimonial-card">
+          <img src="/api/placeholder/80/80" alt="User Avatar" class="testimonial-avatar">
+          <p class="testimonial-quote">"This app is an absolute lifesaver for my daily outfits."</p>
+          <p class="testimonial-author">- Sarah L.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <ul class="footer-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="#"><span>f</span></a>
+          <a href="#"><span>t</span></a>
+          <a href="#"><span>i</span></a>
+          <a href="#"><span>in</span></a>
+        </div>
+        <a href="#" class="download-app">Download Our App</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
